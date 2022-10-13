@@ -31,7 +31,7 @@ Install-Module -Name FancyClearHost -Scope CurrentUser
 
 ## Usage
 
-Just call `Clear-HostFancily` function to play random animations.
+Just call `Clear-HostFancily` function to play random animations, and type 'q' to quit.
 
 ```powershell
 Clear-HostFancily
