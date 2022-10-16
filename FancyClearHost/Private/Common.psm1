@@ -179,7 +179,8 @@ class RandomInt
 function Play($playerClass, $speed, $debugSkipRender = $false)
 {
     ClearKeyHold ([ConsoleKey]::Q)
-    $host.UI.RawUI.CursorPosition = $host.UI.RawUI.WindowPosition
+    $prevCursorVisible = [Console]::CursorVisible
+    [Console]::CursorVisible = $false
 
     $framerate = 60.0
     $dt = 1.0 / $framerate
@@ -255,6 +256,7 @@ function Play($playerClass, $speed, $debugSkipRender = $false)
 
     Clear-Host
     $host.UI.RawUI.FlushInputBuffer()
+    [Console]::CursorVisible = $prevCursorVisible
 }
 
 function CreateCharacters($characterClass, $windowBuffer)
