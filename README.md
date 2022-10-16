@@ -42,3 +42,16 @@ You can play a specific animation by adding `Mode` parameter and control the spe
 ```powershell
 Clear-HostFancily -Mode Falling -Speed 0.5
 ```
+
+## Overwriting `cls` alias
+
+By adding the following code to your PowerShell profile, you can overwrite the `cls` alias with a fancy version.
+
+```powershell
+function FancyClear
+{
+    # You can set whatever parameters you want here
+    Clear-HostFancily -Mode Falling -Speed 3.0
+}
+Set-Alias -Name cls FancyClear -Option AllScope
+```
