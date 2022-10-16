@@ -28,8 +28,8 @@ class Bricks
         [Bricks]::CreateCharacters($windowBuffer)
         [Bricks]::CreateBall()
         [Bricks]::CreateBar()
-        [Bricks]::explosionsToAdd = New-Object System.Collections.ArrayList
-        [Bricks]::explosions = New-Object System.Collections.ArrayList
+        [Bricks]::explosionsToAdd = [System.Collections.Generic.List[PSObject]]::new()
+        [Bricks]::explosions = [System.Collections.Generic.List[PSObject]]::new()
     }
 
     static [void] Term()
@@ -61,7 +61,7 @@ class Bricks
         }
         foreach ($explosion in [Bricks]::explosionsToAdd)
         {
-            [Bricks]::explosions.Add($explosion) | Out-Null
+            [Bricks]::explosions.Add($explosion)
         }
         [Bricks]::explosionsToAdd.Clear()
 
@@ -137,7 +137,7 @@ class Bricks
 
     static [void] CreateExplosion($character, $isBackgroundColorAnimation)
     {
-        [Bricks]::explosionsToAdd.Add([Explosion]::new($character, $isBackgroundColorAnimation)) | Out-Null
+        [Bricks]::explosionsToAdd.Add([Explosion]::new($character, $isBackgroundColorAnimation))
     }
 
     static [Object] GetCharacter($x, $y)

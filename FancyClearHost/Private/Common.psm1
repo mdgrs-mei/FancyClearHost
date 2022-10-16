@@ -38,14 +38,14 @@ public class Native
 
 class RenderItem
 {
-    [System.Collections.ArrayList]$cells = $null
+    [System.Collections.Generic.List[System.Management.Automation.Host.BufferCell]]$cells = $null
     [Double]$x = 0.0
     [Double]$y = 0.0
     [Boolean]$isFinished = $false
 
     RenderItem($cell, $cellTrailing, $x, $y)
     {
-        $this.cells = New-Object System.Collections.ArrayList
+        $this.cells = [System.Collections.Generic.List[System.Management.Automation.Host.BufferCell]]::new()
         $this.cells.Add($cell)
         if ($cellTrailing)
         {
@@ -261,7 +261,7 @@ function Play($playerClass, $speed, $debugSkipRender = $false)
 
 function CreateCharacters($characterClass, $windowBuffer)
 {
-    $characters = New-Object System.Collections.ArrayList
+    $characters = [System.Collections.Generic.List[PSObject]]::new()
 
     $width = $windowBuffer.GetUpperBound(1)
     $height = $windowBuffer.GetUpperBound(0)
@@ -286,7 +286,7 @@ function CreateCharacters($characterClass, $windowBuffer)
                     $cellTrailing = $windowBuffer[$y, ($x+1)]
                 }
                 $character = $characterClass::new($cell, $cellTrailing, $x, $y)
-                $characters.Add($character) | Out-Null
+                $characters.Add($character)
             }
         }
     }
