@@ -14,6 +14,8 @@ https://user-images.githubusercontent.com/81177095/194883476-fed364b3-a641-4626-
 
 </div>
 
+*FancyClearHost* provides you with the ability to clear the PowerShell host display with some cool text animations. Unlike any other PowerShell modules, it doesn't give you any useful features but you should be able to surprise your colleagues or audiences when you give a demo! 
+
 ## Requirements
 
 This module has been tested on:
